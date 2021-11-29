@@ -17,12 +17,12 @@ include_once '../../assets/html/header.html';
 ?>
 
 <div class="container-table">
-  <?php
-  foreach ($employees as $index => $employee) {
-    echo $employee["name"];
-    echo $employee["id"];
-  }
-  ?>
+  <!-- <?php
+        foreach ($employees as $index => $employee) {
+          echo $employee["name"];
+          echo $employee["id"];
+        }
+        ?> -->
   <div class="table-employees" id="employees"></div>
 </div>
 <?php include_once '../../assets/html/footer.html' ?>

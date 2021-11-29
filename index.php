@@ -5,6 +5,14 @@ if (isset($_SESSION["username"])) {
 	header("Location: ./src/views/dashboard.php");
 }
 
+require_once 'config/Router.php';
+
+$router = new Router();
+
+print_r($router->getUri());
+
+
+
 include_once 'config/db.php';
 ?>
 <!DOCTYPE html>

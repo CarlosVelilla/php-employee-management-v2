@@ -7,8 +7,6 @@ if (isset($_GET["form"])) {
     $method = "PUT";
 }
 
-
-
 /**
  * Create a New Employee
  */
@@ -40,8 +38,6 @@ if ($method == 'PUT') {
     // }
 }
 
-
-
 if ($method == 'PATCH') {
 }
 
@@ -49,8 +45,6 @@ if ($method == 'GET') {
     $getEmployee = getEmployee($_GET['id']);
     //header('Location: ../employee.php?id='.$_GET['id']); 
 }
-
-
 
 /**
  * Delete Employee

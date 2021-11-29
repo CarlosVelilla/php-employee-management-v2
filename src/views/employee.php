@@ -1,6 +1,6 @@
 <?php
 
-require_once './library/loginController.php';
+require_once '../library/loginController.php';
 
 session_start();
 if (!isset($_SESSION["username"])) {
@@ -13,7 +13,7 @@ if (time() > $_SESSION['timeout'] + 600) {
   destroySession();
 }
 
-include_once '../assets/html/header.html';
+include_once '../../assets/html/header.html';
 ?>
 <script>
   if (document.querySelector('#back')) {
@@ -22,10 +22,10 @@ include_once '../assets/html/header.html';
 
   function back(e) {
     e.preventDefault();
-    window.location.href = "./dashboard.php";
+    window.location.href = "./views/dashboard.php";
   }
 </script>
-<script src="../assets/js/fillEmployee.js" defer></script>
+<script src="../../assets/js/fillEmployee.js" defer></script>
 <div class="signup-container">
   <div class="left-container">
     <h1>
@@ -33,7 +33,7 @@ include_once '../assets/html/header.html';
       New Employee
     </h1>
     <div class="puppy">
-      <img src="../assets/images/employee.png" />
+      <img src="../../assets/images/employee.png" />
     </div>
   </div>
   <div class="right-container">
@@ -121,4 +121,4 @@ include_once '../assets/html/header.html';
 </div>
 
 
-<?php include_once '../assets/html/footer.html' ?>
+<?php include_once '../../assets/html/footer.html' ?>

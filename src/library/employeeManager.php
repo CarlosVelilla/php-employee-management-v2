@@ -26,12 +26,12 @@ function addEmployee(array $newEmployee)
 
   if (isset($_POST['lastName'])) {
 
-    session_start();
-    $_SESSION['notification'] = "Inserted Succesful!";
-    header('Location: ../dashboard.php');
-  } else {
-    return $newEmployee['id'];
-  }
+        session_start();
+        $_SESSION['notification'] = "Inserted Succesful!";
+        header('Location: ../views/dashboard.php');
+    } else {
+        return $newEmployee['id'];
+    }
 }
 
 function deleteEmployee(string $id)
@@ -61,12 +61,11 @@ function updateEmployee(array $updateEmployee)
     if ($employee['id'] == $updateEmployee['id']) {
       $employeesCollection[$index] = $updateEmployee;
     }
-  }
-  file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
-  if (isset($_GET["form"])) {
-    header('Location: ../dashboard.php');
-  }
-  return true;
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+    if (isset($_GET["form"])) {
+        header('Location: ../views/dashboard.php');
+    }
+    return true;
 }
 
 function getEmployee(string $id)

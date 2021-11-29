@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2021 a las 11:29:16
+-- Tiempo de generación: 29-11-2021 a las 12:23:23
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -47,7 +47,14 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `last_name`, `email`, `gender`, `age`, `street_address`, `city`, `state`, `postal_code`, `phone_number`, `avatar_seed`) VALUES
-(1, 'Rack', 'Lei', 'jackon@network.com', 'man', 24, 126, 'San Jone', 'CA', 394221, 738362762, NULL);
+(1, 'Rack', 'Lei', 'jackon@network.com', 'man', 24, 126, 'San Jone', 'CA', 394221, 738362762, NULL),
+(9, 'John', 'Doe', 'jhondoe@foo.com', 'man', 34, 89, 'New York', 'WA', 9889, 128364564, NULL),
+(10, 'Leila', 'Mills', 'mills@leila.com', 'woman', 29, 55, 'San Diego', 'CA', 98765, 998363246, NULL),
+(11, 'Richard', 'Desmond', 'dismond@foo.com', 'man', 30, 90, 'Salt lake city', 'UT', 457320, 987698765, NULL),
+(12, 'Susan', 'Smith', 'susanmith@baz.com', 'woman', 28, 43, 'Louisville', 'KNT', 445321, 355488976, NULL),
+(13, 'Brad', 'Simpson', 'brad@foo.com', 'man', 40, 128, 'Atlanta', 'GEO', 394221, 854634522, NULL),
+(14, 'Neil', 'Walker', 'walkerneil@baz.com', 'man', 42, 1, 'Nashville', 'TN', 90143, 372788192, NULL),
+(15, 'Robert', 'Thomson', 'jackon@network.net', 'man', 24, 126, 'New Orleans', 'LU', 63281, 232876454, NULL);
 
 -- --------------------------------------------------------
 
@@ -95,7 +102,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

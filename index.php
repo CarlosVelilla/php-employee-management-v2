@@ -2,8 +2,11 @@
 
 session_start();
 if (isset($_SESSION["username"])) {
-	header("Location: ./src/dashboard.php");
-} ?>
+	header("Location: ./src/views/dashboard.php");
+}
+
+include_once 'config/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

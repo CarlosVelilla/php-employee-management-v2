@@ -28,7 +28,7 @@ function addEmployee(array $newEmployee)
 
         session_start();
         $_SESSION['notification'] = "Inserted Succesful!";
-        header('Location: ../dashboard.php');
+        header('Location: ../views/dashboard.php');
     } else {
         return $newEmployee['id'];
     }
@@ -64,7 +64,7 @@ function updateEmployee(array $updateEmployee)
     }
     file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
     if (isset($_GET["form"])) {
-        header('Location: ../dashboard.php');
+        header('Location: ../views/dashboard.php');
     }
     return true;
 }

@@ -1,20 +1,21 @@
 <?php
 
-session_start();
-if (isset($_SESSION["username"])) {
-	header("Location: ./src/views/dashboard.php");
-}
+// session_start();
+// if (isset($_SESSION["username"])) {
+// 	header("Location: ./src/views/dashboard.php");
+// }
 
-require_once 'config/Router.php';
+// require_once 'config/Router.php';
 
-$router = new Router();
+// $router = new Router();
 
-print_r($router->getUri());
+// print_r($router->getUri());
 
-
-
-include_once 'config/db.php';
+// include_once 'config/db.php';
+require_once './src/library/app.php';
+$app = new App();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

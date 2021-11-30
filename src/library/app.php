@@ -1,11 +1,12 @@
-<?
+<?php
+
 require_once './src/controllers/errors.php';
 class App
 {
 	function __construct()
 	{
-		echo "<p>Nueva app</p>";
-		$url = $_GET['url'];
+		// echo "<p>Nueva app</p>";
+		$url = isset($_GET['url']) ? $_GET['url'] : null;
 		$url = rtrim($url, '/');
 		$url = explode('/', $url);
 

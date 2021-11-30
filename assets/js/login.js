@@ -9,7 +9,7 @@ $('#formlogin').submit(function (e) {
 	$.post('./src/library/loginController.php', postData, function (response) {
 		switch (response) {
 			case 'Login ok':
-				location.href = './src/views/dashboard.php'
+				location.href = './main'
 				break
 			case 'Invalid password':
 				$('#login-error').html('Invalid password')

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1>Error al cargar el recurso</h1>
+	<h1><?= $this->message; ?></h1>
 </body>
 
 </html>

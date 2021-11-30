@@ -77,7 +77,7 @@ $('#employees').jsGrid({
 
 			$.ajax({
 				// url: '../src/controllers/employeeController.php',
-				url: '../../resources/employees.json',
+				url: 'resources/employees.json',
 				dataType: 'json',
 				success: function (data) {
 					d.resolve(data)

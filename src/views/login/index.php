@@ -1,18 +1,4 @@
-<?php
-
-// session_start();
-// if (isset($_SESSION["username"])) {
-// 	header("Location: ./src/views/dashboard.php");
-// }
-
-require_once './src/library/controller.php';
-require_once './src/library/view.php';
-require_once './src/library/model.php';
-require_once './src/library/app.php';
-$app = new App();
-?>
-
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,7 +7,7 @@ $app = new App();
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Login Employee Manager</title>
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/css/login.css">
+	<link rel="stylesheet" href="assets/css/login.css">
 </head>
 
 <body>
@@ -49,4 +35,4 @@ $app = new App();
 	<script src="./assets/js/login.js"></script>
 </body>
 
-</html> -->
+</html>

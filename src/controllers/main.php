@@ -6,11 +6,11 @@ class Main extends Controller
 	{
 		parent::__construct();
 		$this->view->render('main/index');
-		echo 'Nuevo controlador main';
+		// echo 'Nuevo controlador main';
 	}
 
-	function saludo()
-	{
-		echo '<p>metodo saludo ejecutado</p>';
-	}
+	// function saludo()
+	// {
+	// 	echo '<p>metodo saludo ejecutado</p>';
+	// }
 }

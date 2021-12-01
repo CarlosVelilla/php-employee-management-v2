@@ -5,12 +5,14 @@ class Main extends Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->view->render('main/index');
-		// echo 'Nuevo controlador main';
+		$this->view->employees = [];
 	}
 
-	// function saludo()
-	// {
-	// 	echo '<p>metodo saludo ejecutado</p>';
-	// }
+	function render()
+	{
+		echo $this->model;
+		// $employees = $this->model->get();
+		// $this->view->employees = $employees;
+		$this->view->render('main/index');
+	}
 }

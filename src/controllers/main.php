@@ -10,9 +10,9 @@ class Main extends Controller
 
 	function render()
 	{
-		echo $this->model;
-		// $employees = $this->model->get();
-		// $this->view->employees = $employees;
+
+		$employees = $this->model->get();
+		$this->view->employees = $employees;
 		$this->view->render('main/index');
 	}
 }

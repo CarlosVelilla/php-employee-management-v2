@@ -1,7 +1,8 @@
 <?php
 
-include_once 'models/employee.php';
-class EmployeeModel extends Model
+include_once 'helper/employee.php';
+
+class MainModel extends Model
 {
 	public function __construct()
 	{

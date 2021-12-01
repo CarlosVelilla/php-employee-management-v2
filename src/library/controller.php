@@ -1,4 +1,5 @@
 <?php
+
 class Controller
 {
 	function __construct()
@@ -9,7 +10,7 @@ class Controller
 
 	function loadModel($model)
 	{
-		$url = 'models/' . $model . 'Model.php';
+		$url = 'src/models/' . $model . 'model.php';
 
 		if (file_exists($url)) {
 			require $url;

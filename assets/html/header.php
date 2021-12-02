@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav class="nav" id="navRef" data-url="<?php echo BASE_URL ?>" >
 	<ul class="menu">
 		<li>
 			<a href="main"

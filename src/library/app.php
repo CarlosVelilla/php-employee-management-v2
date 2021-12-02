@@ -27,9 +27,17 @@ class App
 			$controller = new $url[0];
 			$controller->loadModel($url[0]);
 
-			// si hay un método que se requiere cargar
-			if (isset($url[1])) {
-				$controller->{$url[1]}();
+			$paramAmount = sizeof($url);
+			if ($paramAmount > 1) {
+				if ($paramAmount > 2) {
+					$params = [];
+					for ($i = 2; $i<$paramAmount; $i++) {
+						array_push($params, $url[$i]);
+					}
+					$controller->{$url[1]}($params);
+				} else {
+					$controller->{$url[1]}();
+				}
 			} else {
 				$controller->render();
 			}

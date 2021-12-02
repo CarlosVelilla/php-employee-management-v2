@@ -13,7 +13,7 @@ if (time() > $_SESSION['timeout'] + 600) {
   destroySession();
 }
 
-include_once '../../assets/html/header.html';
+include_once '../../assets/html/header.php';
 ?>
 
 <div class="container-table">

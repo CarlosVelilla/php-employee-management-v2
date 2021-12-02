@@ -18,9 +18,11 @@ class MainModel extends Model
 
 			while ($row = $query->fetch()) {
 				$item = new Employee();
+				$item->id = $row['id'];
 				$item->name = $row['name'];
-				$item->lastName = $row['last_name'];
-				$item->gender = $row['gender'];
+				$item->email = $row['email'];
+				// $item->lastName = $row['last_name'];
+				// $item->gender = $row['gender'];
 				$item->age = $row['age'];
 				$item->streetAddress = $row['street_address'];
 				$item->city = $row['city'];
@@ -35,6 +37,14 @@ class MainModel extends Model
 			return $items;
 		} catch (PDOException $e) {
 			return [];
+		}
+	}
+
+	public function deleteEmployee($id) {
+		try {
+			$query = $this->db->connect()->query("DELETE FROM employees WHERE id=$id");
+		} catch (PDOException $e) {
+			
 		}
 	}
 }

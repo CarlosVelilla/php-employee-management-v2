@@ -11,9 +11,10 @@
 
 ?>
 
-<body>
-  <?php include_once 'assets/html/header.html' ?>
+<?php include_once 'assets/html/head.html'; ?>
+<?php include_once 'assets/html/header.php'; ?>
 
+<body>
   <!-- TODO: PENDING REFACTOR TO PHP HEADER -->
   <!-- <script>
     if (document.querySelector('#back')) {

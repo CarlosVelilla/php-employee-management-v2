@@ -7,6 +7,10 @@
   return formData;
 } */
 
+import { controller } from "./employeeController.js";
+
+const BASE_ENDPOINT = document.getElementById('navRef').dataset["url"]
+
 $('#employees').jsGrid({
 	width: '80%',
 	editing: true,
@@ -21,12 +25,16 @@ $('#employees').jsGrid({
 	deleteConfirm: 'Do you really want to delete the client?',
 	rowClick: function ({ item, itemIndex, event }) {
 		let id = ''
-
+		
 		this.data.forEach((element) => {
 			if (item.id == element.id) id = item.id
 		})
+		
+		// console.log(this.data);
+		// console.log(item);
+		// console.log(id);
 
-		window.location = '../views/employee.php?id=' + id
+		window.location = BASE_ENDPOINT + 'employee/showEmployee/' + id
 	},
 	onItemDeleted: () => {
 		Toastify({
@@ -71,81 +79,7 @@ $('#employees').jsGrid({
 		}).showToast()
 	},
 
-	controller: {
-		loadData: function () {
-			var d = $.Deferred()
-
-			$.ajax({
-				// url: '../src/controllers/employeeController.php',
-				url: 'resources/employees.json',
-				dataType: 'json',
-				success: function (data) {
-					d.resolve(data)
-				},
-				error: function (xhr, exception) {
-					alert('Error: ' + xhr + ' ' + exception)
-				},
-			})
-
-			return d.promise()
-		},
-
-		insertItem: function (item) {
-			var d = $.Deferred()
-
-			$.ajax({
-				type: 'POST',
-				url: '../src/library/employeeController.php',
-				data: item,
-				success: function (data) {
-					d.resolve(data)
-				},
-				error: function (xhr, exception) {
-					alert('Error: ' + xhr + ' ' + exception)
-				},
-			})
-
-			$('#employees').jsGrid('refresh')
-			$('#employees').jsGrid('render')
-
-			return d.promise()
-		},
-
-		deleteItem: function (item) {
-			var d = $.Deferred()
-			$.ajax({
-				type: 'DELETE',
-				url: '../src/library/employeeController.php',
-				data: { id: item.id },
-				success: function (data) {
-					d.resolve(data)
-				},
-				error: function (xhr, exception) {
-					alert('Error: ' + xhr + ' ' + exception)
-				},
-			})
-			$('#employees').jsGrid('render')
-
-			return d.promise()
-		},
-		updateItem: function (item) {
-			var d = $.Deferred()
-			$.ajax({
-				type: 'PUT',
-				url: '../src/library/employeeController.php',
-				data: item,
-				success: function (data) {
-					d.resolve(data)
-				},
-				error: function (xhr, exception) {
-					alert('Error: ' + xhr + ' ' + exception)
-				},
-			})
-			$('#employees').jsGrid('render')
-
-			return d.promise()
-		},
-	},
+	controller: controller,
 
 	fields: [
 		{

@@ -1,3 +1,5 @@
+<?php include_once 'assets/html/head.html'; ?>
+
 <body>
 	<div class="container">
 		<div class="form-container sign-in-container">

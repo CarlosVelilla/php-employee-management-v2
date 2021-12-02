@@ -15,11 +15,24 @@ class Main extends Controller
 		$this->view->render('main/index');
 	}
 
-	function getEmployees() {
+	function getEmployees()
+	{
 		echo json_encode($this->model->get());
 	}
 
-	function deleteEmployee($param = null) {
-		$this->model->deleteEmployee($param);
+	function deleteEmployee($param = null)
+	{
+		$this->model->deleteEmployee($param[0]);
+	}
+
+	function updateEmployee()
+	{
+		$employee = json_decode(file_get_contents("php://input"), true);
+		if (isset($employee['id'])) {
+			$newEmployee = $this->model->updateEmployee($employee);
+			echo json_encode($newEmployee);
+		}
+
+		// $this->model->updateEmployee($param[0]);
 	}
 }

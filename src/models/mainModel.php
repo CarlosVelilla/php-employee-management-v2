@@ -29,7 +29,7 @@ class MainModel extends Model
 				$item->state = $row['state'];
 				$item->postalCode = $row['postal_code'];
 				$item->phoneNumber = $row['phone_number'];
-				$item->avatar = $row['avatar_seed'];
+				// $item->avatar = $row['avatar_seed'];
 
 				array_push($items, $item);
 			}
@@ -40,11 +40,59 @@ class MainModel extends Model
 		}
 	}
 
-	public function deleteEmployee($id) {
+	public function deleteEmployee($id)
+	{
+		$query = $this->db->connect()->prepare("DELETE FROM employees WHERE id= :id");
 		try {
-			$query = $this->db->connect()->query("DELETE FROM employees WHERE id=$id");
+			$query->execute([
+				'id' => $id
+			]);
+			return true;
 		} catch (PDOException $e) {
-			
+			return false;
 		}
+	}
+
+	public function updateEmployee($item)
+	{
+		$id = $item['id'];
+		unset($item['id']);
+
+		$query = "UPDATE employees SET " .
+			implode(', ', array_map(function ($key) {
+				return "$key = :$key";
+			}, array_keys($item)))
+			. " WHERE id = :id;";
+
+		$item['id'] = $id;
+
+		try {
+			$this->db->connect()->query($query, $item, false);
+		} catch (PDOException $e) {
+			return null;
+		}
+		return $item;
+		// $query = $this->db->connect()->prepare(
+		// 	"UPDATE employees 
+		// 	 SET name = :name, email = :email, age = :age,  street_address = :street_address, city = :city, state = :state, postal_code = :postal_code, phone_number = :phone_number
+		// 	 WHERE id= :id"
+		// );
+
+		// try {
+		// 	$query->execute([
+		// 		'id' => $item["id"],
+		// 		'name' => $item["name"],
+		// 		'email' => $item["email"],
+		// 		'age' => $item["age"],
+		// 		'street_address' => $item["street_address"],
+		// 		'city' => $item["city"],
+		// 		'state' => $item["state"],
+		// 		'postal_code' => $item["postal_code"],
+		// 		'phone_number' => $item["phone_number"]
+		// 	]);
+		// 	return true;
+		// } catch (PDOException $e) {
+		// 	return false;
+		// }
 	}
 }
